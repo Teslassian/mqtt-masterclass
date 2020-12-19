@@ -1,0 +1,3 @@
+netstat -aon | find "1883"
+
+taskkill /F /pid
