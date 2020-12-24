@@ -6,7 +6,6 @@ import time
 import board
 
 # Initialization of variables
-# broker = "broker.hivemq.com"
 broker = "192.168.137.1"
 port = 1883
 keepalive = 60
