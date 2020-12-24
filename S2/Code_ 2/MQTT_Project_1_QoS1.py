@@ -23,7 +23,8 @@ def automation(msg):
     else:
         relay.off()
         print("Invalid Message")
-    
+
+# Initialize MQTT Client    
 client = mqtt.Client()
 client.on_message = on_message
 client.connect(broker, port, keepalive)
