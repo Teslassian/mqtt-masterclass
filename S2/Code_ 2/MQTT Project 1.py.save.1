@@ -7,7 +7,7 @@ import board
 
 # Initialization of variables
 # broker = "broker.hivemq.com"
-broker = "192.168.137.1"
+broker = "197.168.137.1"
 port = 1883
 keepalive = 60
 relay = OutputDevice(17)
@@ -33,14 +33,12 @@ def automation(msg):
 
 print("4.1")
 # Initialization of MQTT client
+
 client = mqtt.Client()
-print("4.2")
 client.on_message = on_message
-print("4.3")
 client.connect(broker, port, keepalive)
-print("4.4")
 client.loop_start()
-print("4.5")
+print("4.2")
 
 # Initialization of DHT device
 dhtDevice = adafruit_dht.DHT11(board.D4)
