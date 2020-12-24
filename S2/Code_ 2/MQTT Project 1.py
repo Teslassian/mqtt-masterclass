@@ -9,21 +9,30 @@ port = 1883
 keepalive = 60
 relay = OutputDevice(17)
 
-def on_message(client, userdata, message): #for processing subscribed messages
+# Function for processing subscribed messages
+def on_message(client, userdata, message):
     msg = str(message.payload.decode("utf-8"))
     print("message received ", msg)
     automation(msg)
 
-
+# Function for communicating with the relay
 def automation(msg):
+    if msg == "on":
+        relay.on()
+    elif msg == "off":
+        relay.off()
+    else:
+        relay.off()
+        print("Invalid Message")
 
-
+# Initialization of the MQTT interface
 relay = OutputDevice(17)
 client = mqtt.Client()
 client.on_message = on_message
 client.connect(broker, port, keepalive)
 client.loop_start()
 
+# Main loop
 try:
     while True:
         humidity, temperature = Adafruit_DHT.read_retry(11, 4) #type of sensor, GPIO pin
