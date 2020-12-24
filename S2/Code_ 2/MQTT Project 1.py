@@ -4,18 +4,16 @@ import Adafruit_DHT
 import sys
 import time
 
-broker = "broker.hivemq.com"
-port = 1883
-keepalive = 60
+broker="broker.hivemq.com"
+port =1883
+keepalive=60
 relay = OutputDevice(17)
 
-# Function for processing subscribed messages
-def on_message(client, userdata, message):
+def on_message(client, userdata, message): #forprocessingsubscribedmessages
     msg = str(message.payload.decode("utf-8"))
-    print("message received ", msg)
+    print("message received " ,msg)
     automation(msg)
-
-# Function for communicating with the relay
+    
 def automation(msg):
     if msg == "on":
         relay.on()
@@ -24,28 +22,25 @@ def automation(msg):
     else:
         relay.off()
         print("Invalid Message")
-
-# Initialization of the MQTT interface
-relay = OutputDevice(17)
+    
 client = mqtt.Client()
 client.on_message = on_message
 client.connect(broker, port, keepalive)
 client.loop_start()
 
-# Main loop
 try:
     while True:
-        humidity, temperature = Adafruit_DHT.read_retry(11, 4) #type of sensor, GPIO pin
+        humidity, temperature = Adafruit_DHT.read_retry(11, 4)  #sensor, gpio
         humidity = round(humidity, 2)
         temperature = round(temperature, 2)
-        print('Temp={0:0.1f}*C Humidity={1:0.1f}%'.format(temperature, humidity))
-        # Send the humidity and temperature data to the Broker
-        client.publish('sensor/temp', temperature, 0)
-        client.publish('sensor/hum', humidity, 0)
+        print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
+        # Sending humidity and temperature data to Broker
+        client.publish('sensor/temp',temperature, 0)
+        client.publish('sensor/hum',humidity, 0)
         client.subscribe("automation/bulb1", 0)
         time.sleep(2)
 except KeyboardInterrupt:
     pass
 
-client.loop_stop
+client.loop_stop()
 client.disconnect()
