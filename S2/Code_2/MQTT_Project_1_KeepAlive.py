@@ -1,8 +1,9 @@
 import paho.mqtt.client as mqtt
 from gpiozero import OutputDevice
-import Adafruit_DHT
+import adafruit_dht
 import sys
 import time
+import board
 
 # Initialization of variables
 broker = "192.168.137.1"
