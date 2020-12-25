@@ -4,6 +4,8 @@ import adafruit_dht
 import sys
 import time
 import board
+import pandas as pd
+import csv
 
 # Initialization of variables
 broker = "192.168.137.1"
@@ -37,6 +39,7 @@ client.loop_start()
 dhtDevice = adafruit_dht.DHT11(board.D4)
 
 # Main loop
+i = 0;
 try:
     while True:
         # humidity, temperature = Adafruit_DHT.read_retry(11, 4)  #sensor, gpio
@@ -49,6 +52,11 @@ try:
         client.publish('sensor/temp',temperature, 0)
         client.publish('sensor/hum',humidity, 0)
         client.subscribe("automation/bulb1", 0)
+        # Write data to csv file
+        with open('temp_hum.csv', mode='w') as file:
+            file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            file_writer.writerow([i, temperature, humidity])
+        i += 2
         time.sleep(2)
 except KeyboardInterrupt:
     pass
