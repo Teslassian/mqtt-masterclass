@@ -53,9 +53,10 @@ try:
         client.publish('sensor/hum',humidity, 0)
         client.subscribe("automation/bulb1", 0)
         # Write data to csv file
-        with open('temp_hum.csv', mode='w') as file:
-            file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            file_writer.writerow([i, temperature, humidity])
+        with open('temp_hum.csv', mode='a') as file:
+            file.write([i, temperature, humidity])
+            # file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+            # file_writer.writerow([i, temperature, humidity])
         i += 2
         time.sleep(2)
 except KeyboardInterrupt:
