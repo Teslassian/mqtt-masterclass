@@ -54,7 +54,7 @@ try:
         client.subscribe("automation/bulb1", 0)
         # Write data to csv file
         with open('temp_hum.csv', mode='a') as file:
-            file.write([i, temperature, humidity])
+            file.write(str(i) + ',' +  str(temperature) + ',' + str(humidity) + '\n')
             # file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             # file_writer.writerow([i, temperature, humidity])
         i += 2
