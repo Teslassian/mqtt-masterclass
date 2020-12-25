@@ -40,8 +40,8 @@ dhtDevice = adafruit_dht.DHT11(board.D4)
 
 # Main loop
 i = 0;
-try:
-    while True:
+while True:
+    try:
         # humidity, temperature = Adafruit_DHT.read_retry(11, 4)  #sensor, gpio
         temperature = dhtDevice.temperature
         humidity = dhtDevice.humidity
@@ -59,8 +59,8 @@ try:
             # file_writer.writerow([i, temperature, humidity])
         i += 2
         time.sleep(2)
-except KeyboardInterrupt:
-    pass
+    except RuntimeError as error:
+        print(error.args[0])
 
 # Cleanup
 client.loop_stop()
