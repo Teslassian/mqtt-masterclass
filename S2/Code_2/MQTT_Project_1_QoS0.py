@@ -4,7 +4,7 @@ import adafruit_dht
 import sys
 import time
 import board
-import pandas as pd
+#import pandas as pd
 import csv
 
 # Initialization of variables
