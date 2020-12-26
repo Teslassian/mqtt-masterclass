@@ -45,7 +45,7 @@ client.on_message = on_message
 client.connect(broker, port, keepalive)
 client.loop_start()
 
-
+# Initialization of the IBM cloud connection
 client.connect()
 client.deviceEventCallback = myEventCallback
 client.subscribeToDeviceEvents(typeId="esp32room1", deviceId="esp32r1", eventId="status1")
