@@ -1,9 +1,9 @@
 identity:
     orgId: sloues
     typeId: test
-    deviceId: device1
+    deviceId: RPi4
 auth:
-    token: 6hlEXwFDMfEN&RIm@r
+    token: iReu5mXH4!O1&7dQPH
 options:
     domain: internetofthings.ibmcloud.com
     logLevel: debug

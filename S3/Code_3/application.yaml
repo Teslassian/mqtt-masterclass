@@ -1,13 +1,13 @@
 identity:
-    orgId: sloues
-    typeId: test
-    deviceId: device1
+    appId: mqtt
 auth:
-    token: 6hlEXwFDMfEN&RIm@r
+    key: a-sloues-jxmmyvgorh
+    token: 7T1zlo9WchAdqk6xzb
 options:
     domain: internetofthings.ibmcloud.com
     logLevel: debug
     mqtt:
+        instanceId: instance1
         port: 1883
         transport: tcp
         cleanStart: true

@@ -1,11 +1,10 @@
 import paho.mqtt.client as mqtt
 from gpiozero import OutputDevice
 import adafruit_dht
+import board
+import csv
 import sys
 import time
-import board
-#import pandas as pd
-import csv
 
 # Initialization of variables
 broker = "192.168.137.1"
