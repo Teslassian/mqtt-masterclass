@@ -4,13 +4,12 @@ identity:
     deviceId: device1
     appId: mqtt
 auth:
-    # key: I dont know where to get this
-    token: 6hlEXwFDMfEN&RIm@r
+    key: a-sloues-ytv8pacw0b
+    token: B2ac0MWCw0r6xdcOQ2
+    # token: 6hlEXwFDMfEN&RIm@r
 options:
     domain: internetofthings.ibmcloud.com
     logLevel: debug
-    http:
-        verify: True
     mqtt:
         instanceId: instance1
         port: 1883
@@ -18,3 +17,5 @@ options:
         cleanStart: true
         sessionExpiry: 7200
         keepAlive: 60
+    # http:
+    #     verify: True
