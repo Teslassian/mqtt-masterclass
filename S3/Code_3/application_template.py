@@ -1,7 +1,7 @@
 import wiotp.sdk.application
 import json
 options = wiotp.sdk.application.parseConfigFile("app.yaml")
-print(typeId)
+print(str(typeId))
 #
 # client = wiotp.sdk.application.ApplicationClient(options)
 #
