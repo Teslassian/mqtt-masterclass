@@ -5,7 +5,7 @@ identity:
     appId: mqtt
 auth:
     # key: I dont know where to get this
-    token: &gq7)2zFTMGwJ!YPnL
+    token: 6hlEXwFDMfEN&RIm@r
 options:
     domain: internetofthings.ibmcloud.com
     logLevel: debug

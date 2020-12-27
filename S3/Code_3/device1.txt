@@ -1,0 +1,10 @@
+Organization ID
+sloues
+Device Type
+test
+Device ID
+device1
+Authentication Method
+use-token-auth
+Authentication Token
+6hlEXwFDMfEN&RIm@r
