@@ -2,9 +2,9 @@ import wiotp.sdk.application
 import json
 from gpiozero import OutputDevice
 import adafruit_dht
+import board
 import sys
 import time
-import board
 # import paho.mqtt.client as mqtt
 # import csv
 
@@ -19,15 +19,16 @@ options = wiotp.sdk.application.parseConfigFile("app.yaml")
 client = wiotp.sdk.application.ApplicationClient(options)
 
 def myEventCallback(event):
-    str = "%s evemt '%s' received from device [%s]: %s"
+    str = "%s event '%s' received from device [%s]: %s"
     print(str % (event.format, event.eventId, event.device, json.dumps(event.data)))
     msg = str(json.dumps.(event.data))
     automation(msg)
 
-# ~ # Function for processing subscribed messages
-# ~ def on_message(client, userdata, message): #forprocessingsubscribedmessages
-    # ~ msg = str(message.payload.d
-    # ~ automation(msg)
+# Function for processing subscribed messages
+def on_message(client, userdata, message): #forprocessingsubscribedmessages
+    msg = str(message.payload.decode("utf-8"))
+    print("message received ", msg)
+    automation(msg)
 
 # Function for controlling the relay
 def automation(msg):
@@ -48,8 +49,7 @@ client.loop_start()
 # Initialization of the IBM cloud connection
 client.connect()
 client.deviceEventCallback = myEventCallback
-client.subscribeToDeviceEvents(typeId="esp32room1", deviceId="esp32r1", eventId="status1")
-client.subscribeToDeviceEvents(typeId="esp32room1", deviceId="esp32r1", eventId="status2")
+client.subscribeToDeviceEvents(typeId="test", deviceId="device1", eventId="status1")
 
 # Initialization of DHT device
 dhtDevice = adafruit_dht.DHT11(board.D4)
