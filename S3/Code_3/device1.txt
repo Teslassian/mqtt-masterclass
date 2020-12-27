@@ -3,11 +3,8 @@ sloues
 Device Type
 test
 Device ID
-device1
+RPi4
 Authentication Method
 use-token-auth
 Authentication Token
-6hlEXwFDMfEN&RIm@r
-
-API key: a-sloues-ytv8pacw0b
-API token: B2ac0MWCw0r6xdcOQ2
+iReu5mXH4!O1&7dQPH
