@@ -41,12 +41,13 @@ def automation(msg):
         print("Invalid Message")
 
 # Initialization of MQTT client
-client = mqtt.Client()
-client.on_message = on_message
-client.connect(broker, port, keepalive)
-client.loop_start()
+# client = mqtt.Client()
+# client.on_message = on_message
+# client.connect(broker, port, keepalive)
+# client.loop_start()
 
 # Initialization of the IBM cloud connection
+client.connect()
 client.deviceEventCallback = myEventCallback
 
 # Initialization of DHT device
