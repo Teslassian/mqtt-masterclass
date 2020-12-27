@@ -8,7 +8,7 @@ import time
 # import paho.mqtt.client as mqtt
 # import csv
 
-# Initialization of variables
+# Variables
 broker = "192.168.137.1"
 port = 1883
 keepalive = 60
@@ -47,18 +47,14 @@ client.connect(broker, port, keepalive)
 client.loop_start()
 
 # Initialization of the IBM cloud connection
-client.connect()
 client.deviceEventCallback = myEventCallback
-client.subscribeToDeviceEvents(typeId="test", deviceId="device1", eventId="status1")
 
 # Initialization of DHT device
 dhtDevice = adafruit_dht.DHT11(board.D4)
 
 # Main loop
-i = 0;
 while True:
     try:
-        # humidity, temperature = Adafruit_DHT.read_retry(11, 4)  #sensor, gpio
         temperature = dhtDevice.temperature
         humidity = dhtDevice.humidity
         humidity = round(humidity, 2)
@@ -68,12 +64,7 @@ while True:
         client.publish('sensor/temp',temperature, 0)
         client.publish('sensor/hum',humidity, 0)
         client.subscribe("automation/bulb1", 0)
-        # Write data to csv file
-        with open('temp_hum.csv', mode='a') as file:
-            file.write(str(i) + ',' +  str(temperature) + ',' + str(humidity) + '\n')
-            # file_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            # file_writer.writerow([i, temperature, humidity])
-        i += 2
+        client.subscribeToDeviceEvents(typeId="test", deviceId="device1", eventId="status1")
         time.sleep(2)
     except RuntimeError as error:
         print(error.args[0])
