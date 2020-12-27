@@ -21,7 +21,7 @@ client = wiotp.sdk.application.ApplicationClient(options)
 def myEventCallback(event):
     str = "%s event '%s' received from device [%s]: %s"
     print(str % (event.format, event.eventId, event.device, json.dumps(event.data)))
-    msg = str(json.dumps.(event.data))
+    msg = str(json.dumps(event.data))
     automation(msg)
 
 # Function for processing subscribed messages
