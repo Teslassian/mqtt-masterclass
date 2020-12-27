@@ -8,7 +8,7 @@ options:
     domain: internetofthings.ibmcloud.com
     logLevel: debug
     mqtt:
-        port: 1883
+        port: 8883
         transport: tcp
         cleanStart: true
         sessionExpiry: 7200
