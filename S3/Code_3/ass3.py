@@ -24,7 +24,7 @@ def automation(msg):
         print("Invalid Message")
 
 # Configure
-myConfig = wiotp.sdk.device(parseConfigFile("ass3.yaml"))
+myConfig = wiotp.sdk.device.parseConfigFile("ass3.yaml")
 client = wiotp.sdk.device.DeviceClient(config=myConfig, logHandlers=None)
 
 # Connect
@@ -40,14 +40,14 @@ while True:
         temperature = round(temperature, 3)
         humidity = round(humidity, 3)
         print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-        if temperature >= 31:
+        if temperature >= 32:
             automation('on')
-        if temperature <= 29:
+        if temperature <= 31:
             automation('off')
         myData1 = {'temperature': temperature}
         myData2 = {'humidity': humidity}
-        client.publishEvent(eventId='temp', msgFormat='json', data=myData1, qos=2, onPublish=eventPublishCallback)
-        client.publishEvent(eventId='temp', msgFormat='json', data=myData1, qos=2, onPublish=eventPublishCallback)
+        client.publishEvent(eventId='temperature', msgFormat='json', data=myData1, qos=2, onPublish=eventPublishCallback)
+        client.publishEvent(eventId='humidity', msgFormat='json', data=myData2, qos=2, onPublish=eventPublishCallback)
         time.sleep(2)
     except RuntimeError as error:
         print(error.args[0])
