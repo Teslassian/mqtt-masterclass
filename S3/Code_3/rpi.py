@@ -9,11 +9,6 @@ import sys
 # Variables
 relay = OutputDevice(17)
 
-# Configure
-options = wiotp.sdk.device.parseConfigFile("device.yaml")
-client = wiotp.sdk.device.DeviceClient(options)
-client.myCommandCallback = myCommandCallback
-
 # Callback Function for published data
 def eventPublishCallback():
     print("Device Publish Event done!!!")
@@ -36,6 +31,10 @@ def automation(msg):
         relay.off()
         print("Invalid Message")
 
+# Configure
+options = wiotp.sdk.device.parseConfigFile("device.yaml")
+client = wiotp.sdk.device.DeviceClient(options)
+client.myCommandCallback = myCommandCallback
 
 # Connect
 client.connect()
