@@ -1,0 +1,15 @@
+identity:
+    orgId: sloues
+    typeId: test
+    deviceId: RPi4
+auth:
+    token: iReu5mXH4!O1&7dQPH
+options:
+    domain: internetofthings.ibmcloud.com
+    logLevel: debug
+    mqtt:
+        port: 8883
+        transport: tcp
+        cleanStart: true
+        sessionExpiry: 7200
+        keepAlive: 60

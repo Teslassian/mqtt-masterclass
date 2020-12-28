@@ -32,7 +32,7 @@ def automation(msg):
         print("Invalid Message")
 
 # Configure
-options = wiotp.sdk.device.parseConfigFile("device.yaml")
+options = wiotp.sdk.device.parseConfigFile("rpi.yaml")
 client = wiotp.sdk.device.DeviceClient(options)
 client.myCommandCallback = myCommandCallback
 
