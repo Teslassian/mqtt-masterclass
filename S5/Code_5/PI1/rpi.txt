@@ -1,0 +1,10 @@
+Organization ID
+sloues
+Device Type
+project3
+Device ID
+rpi
+Authentication Method
+use-token-auth
+Authentication Token
+b0j+w3Xc3+PSQrup6C

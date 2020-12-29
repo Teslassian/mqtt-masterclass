@@ -1,13 +1,13 @@
 identity:
-    appId: mqtt
+    orgId: sloues
+    typeId: project3
+    deviceId: rpi_em_s5
 auth:
-    key: a-j5sxd2-g5bdnthqgh
-    token: S4?HM8wno3SdFDLd?g
+    token: *pI8faZ?OFsK49z2HO
 options:
     domain: internetofthings.ibmcloud.com
     logLevel: debug
     mqtt:
-        instanceId: instance1
         port: 1883
         transport: tcp
         cleanStart: true

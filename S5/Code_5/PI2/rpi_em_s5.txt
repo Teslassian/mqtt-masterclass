@@ -1,10 +1,10 @@
 Organization ID
 sloues
 Device Type
-project2
+project3
 Device ID
-rpi_as_esp32
+rpi_em_s5
 Authentication Method
 use-token-auth
 Authentication Token
-21wwGW3bgJ?kOt*_lT
+*pI8faZ?OFsK49z2HO
