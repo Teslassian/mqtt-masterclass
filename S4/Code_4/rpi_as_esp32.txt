@@ -1,0 +1,10 @@
+Organization ID
+sloues
+Device Type
+project2
+Device ID
+rpi_as_esp32
+Authentication Method
+use-token-auth
+Authentication Token
+21wwGW3bgJ?kOt*_lT
