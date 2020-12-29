@@ -14,7 +14,7 @@ client.connect()
 client.deviceEventCallback = myEventCallback
 
 while True:
-    client.subscribeToDeviceEvents(typeId="project3", deviceId="client2", eventId="status2")
+    # client.subscribeToDeviceEvents(typeId="project3", deviceId="client2", eventId="status2")
     msg = input(" ")
     myData={'name' : 'Aravind', 'MSG' : msg}
     client.publishEvent(typeId="project3", deviceId="client1", eventId="status1", msgFormat="json", data=myData, qos=0, onPublish=eventPublishCallback)
