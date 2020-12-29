@@ -1,0 +1,5 @@
+Organization ID: 		sloues
+Device Type: 			project2
+Device ID: 				RPi4_client1 
+Authentication Method: 	use-token-auth
+Authentication Token: 	lmAf1ddc8UrTrvdH85

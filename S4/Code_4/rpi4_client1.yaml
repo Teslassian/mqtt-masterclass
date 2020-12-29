@@ -1,0 +1,15 @@
+identity:
+    appId: project2
+auth:
+    key: a-sloues-5zdgh3u6ui
+    token: FP1CS@T-n)HoloMS93
+options:
+    domain: internetofthings.ibmcloud.com
+    logLevel: debug
+    mqtt:
+        instanceId: instance1
+        port: 1883
+        transport: tcp
+        cleanStart: true
+        sessionExpiry: 7200
+        keepAlive: 60
