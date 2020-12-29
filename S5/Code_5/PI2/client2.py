@@ -1,7 +1,7 @@
-import wiotp.sdk.application
+import wiotp.sdk.device
 import json
-options = wiotp.sdk.application.parseConfigFile("app.yaml")
-client = wiotp.sdk.application.ApplicationClient(options)
+options = wiotp.sdk.device.parseConfigFile("rpi_em_s5.yaml")
+client = wiotp.sdk.device.DeviceClient(options)
 
 def myEventCallback(event):
     str = "Message Received from [%s]: %s"
@@ -10,12 +10,11 @@ def myEventCallback(event):
 def eventPublishCallback():
     print("Message Sent")
 
+client.connect()
+client.deviceEventCallback = myEventCallback
+
 while True:
-    client.connect()
-    client.deviceEventCallback = myEventCallback
-    client.subscribeToDeviceEvents(typeId="Raspberrypi2", deviceId="client2", eventId="status2")
+    client.subscribeToDeviceEvents(typeId="project3", deviceId="client2", eventId="status2")
     msg = input(" ")
     myData={'name' : 'Aravind', 'MSG' : msg}
-    client.publishEvent(typeId="Raspberrypi1", deviceId="client1", eventId="status1", msgFormat="json", data=myData, qos=2, onPublish=eventPublishCallback)
-
-
+    client.publishEvent(typeId="project3", deviceId="client1", eventId="status1", msgFormat="json", data=myData, qos=0, onPublish=eventPublishCallback)
