@@ -10,9 +10,10 @@ def myEventCallback(event):
 def eventPublishCallback():
     print("Message Sent")
 
+client.connect()
+client.deviceEventCallback = myEventCallback
+
 while True:
-    client.connect()
-    client.deviceEventCallback = myEventCallback
     client.subscribeToDeviceEvents(typeId="project3", deviceId="rpi", eventId="status2")
     msg = input(" ")
     myData={'name' : 'S5', 'MSG' : msg}
