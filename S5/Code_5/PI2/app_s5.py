@@ -1,5 +1,6 @@
 import wiotp.sdk.application
 import json
+
 options = wiotp.sdk.application.parseConfigFile("app_s5.yaml")
 client = wiotp.sdk.application.ApplicationClient(options)
 
@@ -12,9 +13,9 @@ def eventPublishCallback():
 
 client.connect()
 client.deviceEventCallback = myEventCallback
+client.subscribeToDeviceEvents(typeId="project3", deviceId="rpi", eventId="status")
 
 while True:
-    client.subscribeToDeviceEvents(typeId="project3", deviceId="rpi", eventId="status2")
-    msg = input(" ")
+    msg = input("Enter the message: ")
     myData={'name' : 'S5', 'MSG' : msg}
-    client.publishEvent(typeId="project3", deviceId="rpi", eventId="status1", msgFormat="json", data=myData) #, qos=0, onPublish=eventPublishCallback)
+    client.publishCommand("project3", "rpi", 'message', "json", myData) #, qos=0, onPublish=eventPublishCallback)
