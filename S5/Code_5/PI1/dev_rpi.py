@@ -1,6 +1,6 @@
 import wiotp.sdk.device
 import json
-options = wiotp.sdk.device.parseConfigFile("rpi.yaml")
+options = wiotp.sdk.device.parseConfigFile("dev_rpi.yaml")
 client = wiotp.sdk.device.DeviceClient(options)
 
 def myEventCallback(event):
