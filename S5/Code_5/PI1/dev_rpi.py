@@ -1,21 +1,20 @@
 import wiotp.sdk.device
 import json
+
 options = wiotp.sdk.device.parseConfigFile("dev_rpi.yaml")
 client = wiotp.sdk.device.DeviceClient(options)
 
-def myEventCallback(event):
-    str = "Message Received from [%s]: %s"
-    print(str % (event.device, json.dumps(event.data)))
+def myCommandCallback(cmd):
+    str = "Message Received: %s"
+    print(str % (cmd.data))
 
 def eventPublishCallback():
     print("Message Sent")
 
 client.connect()
-client.deviceEventCallback = myEventCallback
+client.commandCallback = myCommandCallback
 
 while True:
-    # client.subscribeToDeviceEvents(typeId="project3", deviceId="client1", eventId="status1")
-    msg = input(" ")
+    msg = input("Enter the message: ")
     myData={'name' : 'Naveen', 'MSG' : msg}
-    client.publishEvent(eventId='temperature', msgFormat='json', data=myData1, qos=2, onPublish=eventPublishCallback)
-    client.publishEvent(typeId="project3", deviceId="rpi_em_s5", eventId="status2", msgFormat="json", data=myData, qos=0, onPublish=eventPublishCallback)
+    client.publishEvent(eventId='status', msgFormat='json', data=myData, qos=0, onPublish=eventPublishCallback)
