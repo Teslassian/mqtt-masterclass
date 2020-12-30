@@ -18,4 +18,4 @@ client.subscribeToDeviceEvents(typeId="project3", deviceId="rpi", eventId="statu
 while True:
     msg = input("Enter the message: ")
     myData={'name' : 'S5', 'MSG' : msg}
-    client.publishCommand("project3", "rpi", 'reboot', "json", myData) #, qos=0, onPublish=eventPublishCallback)
+    client.publishCommand("project3", "rpi", 'message', "json", myData) #, qos=0, onPublish=eventPublishCallback)
