@@ -1,0 +1,15 @@
+identity:
+    appId: project3_rpi
+auth:
+    key: a-sloues-3d8o6ydyhz
+    token: apfO7SQ@*UpXf9@N1t
+options:
+    domain: internetofthings.ibmcloud.com
+    logLevel: debug
+    mqtt:
+        instanceId: instance2
+        port: 1883
+        transport: tcp
+        cleanStart: true
+        sessionExpiry: 7200
+        keepAlive: 60

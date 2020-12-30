@@ -1,0 +1,15 @@
+identity:
+    appId: project3_s5
+auth:
+    key: a-sloues-vg2qsyyolf
+    token: Omupw1MyjE7@@RV&8?
+options:
+    domain: internetofthings.ibmcloud.com
+    logLevel: debug
+    mqtt:
+        instanceId: instance1
+        port: 1883
+        transport: tcp
+        cleanStart: true
+        sessionExpiry: 7200
+        keepAlive: 60
