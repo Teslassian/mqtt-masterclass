@@ -1,6 +1,6 @@
 import wiotp.sdk.application
 
-options = wiotp.sdk.application.ParseConfigFile("1.yaml")
+options = wiotp.sdk.application.parseConfigFile("1.yaml")
 client = wiotp.sdk.application.ApplicationClient(options)
 
 def myEventCallback(event):
@@ -9,6 +9,6 @@ def myEventCallback(event):
 
 client.connect()
 client.deviceEventCallback = myEventCallback
-client.subscribeToDeviceEvents(typeId=rpi2, deviceId=sdktest2, eventId="status", msgFormat='json')
+client.subscribeToDeviceEvents(typeId=project3, deviceId=rpi, eventId="status", msgFormat='json')
 myData={'name' : '1', 'msg' : "Device 1 sent this"}
-client.publishEvent(rpi1, sdktest1, "status", "json", myData)
+client.publishEvent(test, RPi4, "status", "json", myData)
