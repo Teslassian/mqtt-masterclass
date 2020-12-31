@@ -1,0 +1,15 @@
+identity:
+    appId: sdktest2
+auth:
+    key: a-sloues-1uxu92mbaj
+    token: IA_rxZ03_uL1N)Y1TB
+options:
+    domain: internetofthings.ibmcloud.com
+    logLevel: debug
+    mqtt:
+        instanceId: instance1
+        port: 1883
+        transport: tcp
+        cleanStart: true
+        sessionExpiry: 7200
+        keepAlive: 60
